@@ -51,5 +51,5 @@ void main(List<String> arguments) async {
     instances += card.instances;
   }
 
-  print(instances);
+  print('instances: $instances');
 }
