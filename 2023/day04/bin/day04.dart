@@ -33,5 +33,23 @@ void main(List<String> arguments) async {
   for (final card in cards) {
     points += card.points;
   }
-  print(points);
+  print('Points: $points');
+
+  for (int i = 0; i < cards.length; i++) {
+    final card = cards[i];
+    final matchingNumbers = card.matchingNumbers;
+    for (int j = i + 1; j < i + 1 + matchingNumbers; j++) {
+      for (int k = 0; k < card.instances; k++) {
+        final cardToUpdate = cards[j];
+        cardToUpdate.instances++;
+      }
+    }
+  }
+
+  var instances = 0;
+  for (final card in cards) {
+    instances += card.instances;
+  }
+
+  print(instances);
 }

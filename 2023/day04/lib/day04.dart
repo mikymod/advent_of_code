@@ -5,11 +5,14 @@ class StretchCard {
   );
   final List<int> winningNumbers;
   final List<int> numbers;
+  int instances = 1;
+
+  int get matchingNumbers =>
+      winningNumbers.toSet().intersection(numbers.toSet()).length;
 
   int get points {
     var points = 0;
-    final n = winningNumbers.toSet().intersection(numbers.toSet());
-    for (int i = 0; i < n.length; i++) {
+    for (int i = 0; i < matchingNumbers; i++) {
       if (i == 0) {
         points = 1;
       } else if (i > 0) {
